@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="css/style.css">
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body style="background: transparent; width: 580px;" onload="all()">
+
+<script>
+var myPeople= [
+{
+	name: "ירדן זילבר",
+    jobTitle: "מתכנת",
+    img:'htpopo',
+    hoverImg: 'images/bigger_p.png' 
+},
+{
+	name: "אופק בקוש",
+    jobTitle: "מעצב",
+    img:'images/istockphoto1.jpg',
+    hoverImg: 'images/bigger_p.png' 
+},
+{
+	name: "סתיו ציפורי",
+    jobTitle: "ראש צוות",
+    img:'',
+    hoverImg: 'images/bigger_p.png' 
+},
+{
+	name: "ענבר חגג",
+    jobTitle: "מטמיע",
+    img:'',
+    hoverImg: 'images/bigger_p.png' 
+},
+{
+	name: "שובל אוסטר",
+    jobTitle: "מפתחת הדרכה",
+    img:'',
+    hoverImg: 'images/bigger_p.png' 
+},
+];
+
+function all(){
+    console.log("length "+myPeople.length);
+    for(i=0;i<myPeople.length;i++){
+        createHuman(i);
+    }
+}
+
+function createHuman(humanNum){
+    let thisHUman = myPeople[humanNum];
+    console.log("length "+thisHUman.name);
+
+    let imgElement = document.createElement("img");
+    imgElement.src = thisHUman.img;
+
+    imgElement.addEventListener('mouseover', function () {
+        imgElement.src = thisHUman.hoverImg || thisHUman.img;
+    });
+
+    imgElement.addEventListener('mouseout', function () {
+        imgElement.src = thisHUman.img;
+    });
+
+    // Create a container div for each human and append it to the humanContainer
+    let humanContainer = document.getElementById("humanContainer");
+    let humanDiv = document.createElement("div");
+    humanDiv.classList.add("cards");
+    humanDiv.innerHTML = '<div class="humanImg"></div> <span class="nameTitle">' + thisHUman.name + '</span> <div class="nameTitle">' + thisHUman.jobTitle + '</div>';
+    humanDiv.querySelector(".humanImg").appendChild(imgElement);
+    humanContainer.appendChild(humanDiv);
+    }
+</script>
+
+<h1 >This is a Heading</h1>
+<p>This is a paragraph.</p>
+<div id="humanContainer" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; row-gap:50px;">
+
+</div>
+</body>
+</html>

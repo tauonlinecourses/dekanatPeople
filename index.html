@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body onload="all()">
+
+<script>
+var myPeople= [
+{
+	name: "ירדן",
+    familyName: "פופיקמן",
+    img:'htpopo'
+},
+{
+	name: "אופק2",
+    familyName: "באקוש2"
+}
+];
+
+function all(){
+    console.log("length "+myPeople.length);
+    for(i=0;i<myPeople.length;i++){
+        createHuman(i);
+    }
+}
+
+function createHuman(humanNum){
+    let thisHUman = myPeople[humanNum];
+    console.log("length "+thisHUman.name);
+    //document.getElementById("humanContainer").innerHTML += '<div> <div class="humanImg"> </div> <span>' + humanNum.name +'</span> <div>' + humanNum.familyName + '</div> </div>';
+    document.getElementById("humanContainer").innerHTML += '<div class="popic12"> <div class="humanImg"><img src="' +thisHUman.img +'"></div> <span>'+thisHUman.name+'</span> <div>' +thisHUman.familyName  + '</div> </div>';
+    }
+</script>
+
+<h1 >This is a Heading</h1>
+<p>This is a paragraph.</p>
+<div id="humanContainer" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+
+</div>
+</body>
+</html>
